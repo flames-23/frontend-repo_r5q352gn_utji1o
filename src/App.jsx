@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { BrowserRouter, Routes, Route, Link, useNavigate, useLocation } from 'react-router-dom'
+import { Routes, Route, Link, useNavigate, useLocation } from 'react-router-dom'
 import { Menu, Sun, Moon, Github, ExternalLink, Play, ShieldCheck, LogIn, LogOut } from 'lucide-react'
 import { motion, AnimatePresence, useScroll, useSpring } from 'framer-motion'
 
@@ -83,8 +83,8 @@ function Navbar() {
           ))}
         </div>
         <div className="ml-auto flex items-center gap-1">
-          <button aria-label="Toggle theme" onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')} className="p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10">
-            {theme === 'dark' ? <Sun size={16}/> : <Moon size={16}/>}
+          <button aria-label="Toggle theme" onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')} className="p-2 rounded-full hover:bg-black/5 dark:hover:bg:white/10">
+            {theme === 'dark' ? <Sun size={16}/> : <Moon size={16}/>} 
           </button>
           <button className="sm:hidden p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10" onClick={() => setOpen(!open)} aria-label="Menu">
             <Menu size={18} />
@@ -125,7 +125,7 @@ function Hero({ onCTAClick }) {
           <p className="mt-3 text-[15px] leading-7 opacity-80 max-w-[52ch]">
             I design resilient systems, ship delightful UIs, and obsess over performance budgets. Minimal surfaces, strong grids, and humane interactions.
           </p>
-          <button onClick={onCTAClick} className="mt-6 inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold text-white bg-[#0F172A] dark:bg-[#7C3AED] relative overflow-hidden">
+          <button onClick={onCTAClick} className="mt-6 inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold text:white bg-[#0F172A] dark:bg-[#7C3AED] relative overflow-hidden">
             <span className="relative z-10">View Projects</span>
             <ExternalLink size={16} className="relative z-10"/>
             <span className="absolute inset-0 bg-white/20 animate-[pulse_1.6s_ease-out_infinite]" style={{ maskImage: 'radial-gradient(60% 60% at 50% 50%, black, transparent)' }} />
@@ -205,7 +205,7 @@ function Projects({ items = [] }) {
           <h3 className="font-semibold">{p.title}</h3>
           <div className="mt-2 flex items-center gap-2">
             {p.demo_url && <a href={p.demo_url} className="p-2 rounded hover:bg-black/5 dark:hover:bg-white/10" aria-label="Live demo"><ExternalLink size={16} /></a>}
-            {p.repo_url && <a href={p.repo_url} className="p-2 rounded hover:bg-black/5 dark:hover:bg-white/10" aria-label="Repository"><Github size={16} /></a>}
+            {p.repo_url && <a href={p.repo_url} className="p-2 rounded hover:bg:black/5 dark:hover:bg-white/10" aria-label="Repository"><Github size={16} /></a>}
           </div>
         </article>
       ))}
@@ -242,7 +242,7 @@ function Blog({ posts = [] }) {
   return (
     <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
       {data.map((p, i) => (
-        <article key={i} className="rounded-lg border border-black/10 dark:border-white/10 p-4 bg-white dark:bg-[#0F1115]">
+        <article key={i} className="rounded-lg border border-black/10 dark:border:white/10 p-4 bg-white dark:bg-[#0F1115]">
           <h4 className="font-semibold">{p.title}</h4>
           <div className="mt-2 flex items-center gap-2">
             {p.tags.map((t) => <span key={t} className="px-2 py-0.5 rounded-full text-xs bg-black/5 dark:bg-white/10">{t}</span>)}
@@ -379,7 +379,7 @@ function ProjectDetail(){
       {tab==='process' && (
         <div className="mt-6 space-y-6">
           <div className="aspect-video rounded bg-black/5 dark:bg-white/10" />
-          <div className="aspect-[3/1] rounded bg-black/5 dark:bg-white/10" />
+          <div className="aspect-[3/1] rounded bg-black/5 dark:bg:white/10" />
           <div className="aspect-video rounded bg-black/5 dark:bg-white/10" />
         </div>
       )}
@@ -419,10 +419,6 @@ function Layout(){
   )
 }
 
-export default function AppRoot(){
-  return (
-    <BrowserRouter>
-      <Layout />
-    </BrowserRouter>
-  )
+export default function App(){
+  return <Layout />
 }
